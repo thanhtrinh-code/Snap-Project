@@ -169,7 +169,7 @@ function showCards (shuffleData = true, cards = null) {
     shuffle(showCards);
   }
   currentData = showCards;
-  
+
   const cardContainer = document.getElementById("card-container");
   cardContainer.innerHTML = "";
   const templateCard = document.querySelector(".card");
@@ -196,7 +196,7 @@ function showCards (shuffleData = true, cards = null) {
     descParas[0].textContent = `Description: ${data.description}`;
     descParas[1].textContent = `Difficulty: ${data.difficulty}`;
     descParas[2].textContent = `Position: ${data.position}`;
-    descParas[3].textContent = `Submission Rate: ${data.percent} %`;
+    descParas[3].textContent = `Submission Rate: ${data.percent}%`;
     descParas[4].textContent = `Creator: ${data.creator}`;
 
 

@@ -9,24 +9,104 @@
 
   <body>
     <header class="main-header">
-      <h1 class="title">LA TV Shows</h1>
+      <img src="/image/logo.jpg">
+      <div class="inner-header">
+        <h1>
+          Welcome to the World of Brazalian Jiu Jutsu
+        </h1>
+        <p>
+          Hello Jiu-Jitsu practitioners, followers, and curious minds!
+          Whether you're deep into the grind or just discovering the art, welcome to the world of Brazilian Jiu-Jitsu. For those who do not know about BJJ, it is
+          a dynamic and strategic combat sport rooted in leverage, technique, and control. BJJ focuses on ground fighting, 
+          submissions, and positional dominance, allowing a smaller person to overcome a larger opponent using skill and efficiency. 
+          It's more than just a martial art, it's a lifestyle, a discipline, and a community that pushes you to grow both physically and mentally. Dive in, explore techniques, learn about legends, and discover why Jiu-Jitsu 
+          is one of the fastest-growing martial arts in the world.
+        </p>
+      </div>
+
     </header>
-    <div id="card-container"></div>
-    <div class="card" style="display: none">
-      <div class="card-content">
-        <h2>TV Show Title</h2>
-        <img src="" alt="TV Show Poster" />
-        <ul>
-          <li>Bullet Point 1</li>
-          <li>Bullet Point 2</li>
-          <li>Bullet Point 3</li>
-        </ul>
+    <div class="container">
+      <div class="filters">
+        <button class="button" onclick="showCards();">Shuffle</button>
+        <button class="button" onclick="sortByName();">Sort by name</button>
+        <button class="button" onclick="sortByRate();">Sort by submission rate</button>
+        <button class="button" onclick="sortByDifficulty();">Sort by difficulty</button>
+        <select class="select" name="cars" id="tags-options"  onchange="sortByTags();"> 
+          <option value="" disabled selected>Select a tag</option>
+        </select>
+        <input type="text" 
+        value=""
+        id="search"
+        class="search-input" 
+        placeholder="Search technique"
+          onkeyup="onSearch();"
+        />
+      </div>
+      
+      <div class="actions" style="left: 50%">
+        <button class="button" onclick="showCards();">All</button>
+        <button class="button" onclick="showFavorite();">Favorite</button>
       </div>
     </div>
-    <div class="footer">
-      <button onclick="quoteAlert();">Get A Quote!</button>
-      <button onclick="removeLastCard();">Remove A Card!</button>
+    <div class='layout-container' id="layout-container">
+      <div id="card-container" style="height: 100vh; overflow-y: auto; width: 60%; padding-left: 15px;">
+      </div>
+      <div id="card" class="card" style="display: none;"> 
+        <div class="card-header" id="card-header">
+          <h2>
+          </h2>
+          <button>
+          </button>
+        </div>
+        <div id="card-description" class="card-description">
+          <p>
+            </p>
+          <p>
+            </p>
+          <p>
+            </p>
+          <p>
+            </p>
+          <p>
+            </p>
+        </div>
+        <div id="card-tags" class="card-tags"> 
+
+        </div>
+        <div id="card-img-yt" class="card-img-yt">
+          <img class="card-img"/>
+          <button>
+            Tutorial
+          </button>
+        </div>
+      </div>
+      <div id="tutorial" style="display:flex; justify-content: center; align-items: center; width: 40%; flex-direction: column;">
+          <iframe 
+            src="" 
+            title=""
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            referrerpolicy="strict-origin-when-cross-origin" 
+            allowfullscreen
+            style="display: none; width: 70%; height: 40rem; border-radius: 5%;"
+          ></iframe>
+          <div id="default-tutorial" >
+            Click on technique tutorial to see 
+          </div>
+          <div id="tutorial-button" style="display: none; padding: 20px">
+            <button id="gi-tutorial" 
+                    style="margin-right: 20px; padding: 13px; border-radius: 10%; background-color: aqua; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
+              Gi
+            </button>
+
+            <button id="nogi-tutorial" 
+                    style="padding: 13px; border-radius: 10%; background-color: rgb(154, 142, 223); font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-size: 10px;">
+              NoGi
+            </button>
+
+          </div>
+      </div>
+      
     </div>
-    <iframe width="371" height="659" src="https://www.youtube.com/embed/JY9ithyvLRM" title="Ezekiel Choke" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
   </body>
 </html>

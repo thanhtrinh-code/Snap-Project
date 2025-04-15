@@ -34,7 +34,7 @@ let myData = [
     description: "A choke applied from the back, wrapping the arm around the neck and squeezing without using the Gi.",
     difficulty: "Medium",
     creator: "Rickson Gracie (popularizer)",
-    image: "image/rear_naked_choke.jpg",
+    image: "./image/rear_naked_choke.jpg",
     demonstrationVideo: ["8MpFS5wvSAM", "JY9ithyvLRM"],
     tags: ["Submission", "Back", "High Percentage"]
   },
@@ -45,7 +45,7 @@ let myData = [
     description: "A choke that uses the legs to trap the opponent's head and one arm in a triangle configuration.",
     difficulty: "Hard",
     creator: "Royce Gracie (popularizer)",
-    image: "image/triangle_choke.jpg",
+    image: "./image/triangle_choke.jpg",
     demonstrationVideo: ["5ED_yLiMhyc", "oa-GPurs8Vw"],
     tags: ["Submission", "Choke", "Guard"]
   },
@@ -56,7 +56,7 @@ let myData = [
     description: "A shoulder lock that involves isolating the opponent's arm and rotating it behind their back.",
     difficulty: "Medium",
     creator: "Masahiko Kimura",
-    image: "image/kimura.jpg",
+    image: "./image/kimura.jpg",
     demonstrationVideo: ["BPqy9gG4DYs", "fqQ4mVxJaoE"],
     tags: ["Submission", "Joint Lock", "Fundamental"]
   },
@@ -67,7 +67,7 @@ let myData = [
     description: "A classic sweep using a scissor motion of the legs to off-balance the opponent and reverse positions.",
     difficulty: "Easy",
     creator: "Carlos Gracie Sr.",
-    image: "image/scissors_sweep.jpg",
+    image: "./image/scissors_sweep.jpg",
     demonstrationVideo: ["nVRzhBr4tj8", "lXARLAPD8wM"],
     tags: ["Sweep", "Beginner", "Guard"]
   },
@@ -78,7 +78,7 @@ let myData = [
     description: "A fundamental joint lock where the attacker traps the opponent's arm and hyperextends the elbow.",
     difficulty: "Medium",
     creator: "Judo Origins",
-    image: "image/arm_bar_from_mount.jpg",
+    image: "./image/arm_bar_from_mount.jpg",
     demonstrationVideo: ["u1GRf9N_904","45SGFHd2SmE"],    
     tags: ["Submission", "Arm Lock", "Mount"]
   },
@@ -89,7 +89,7 @@ let myData = [
     description: "An advanced technique that inverts the body to take the back from De La Riva guard.",
     difficulty: "Hard",
     creator: "Mendes Brothers",
-    image: "image/berimbolo.jpg",
+    image: "./image/berimbolo.jpg",
     demonstrationVideo: ["DSpAGjs59GY", "1fQIlh3PNf0"],
     tags: ["Sweep", "Back", "Advanced"]
   },
@@ -100,7 +100,7 @@ let myData = [
     description: "A choke executed by wrapping the arm around the opponent's neck while facing them, typically from a sprawl or guard.",
     difficulty: "Medium",
     creator: "Marcelo Garcia",
-    image: "image/guillotine_choke.jpg",
+    image: "./image/guillotine_choke.jpg",
     demonstrationVideo: ["kenuh19VAhA", "bLBHnMUjoug"],
     tags: ["Submission", "Choke", "Front Headlock"]
   },
@@ -111,7 +111,7 @@ let myData = [
     description: "A sweeping technique using hooks and body movement to elevate and roll the opponent over.",
     difficulty: "Easy",
     creator: "Unknown",
-    image: "image/butterfly_sweep.jpg",
+    image: "./image/butterfly_sweep.jpg",
     demonstrationVideo: ["8JB3Bt6muFE", "ytv0Wf34Xe0"],
     tags: ["Sweep", "Guard", "Beginner"]
   },
@@ -122,7 +122,7 @@ let myData = [
     description: "A shoulder lock submission executed by isolating an arm with the legs and rotating the opponent's shoulder.",
     difficulty: "Hard",
     creator: "Nino Schembri (modern usage)",
-    image: "image/omoplata.jpg",
+    image: "./image/omoplata.jpg",
     demonstrationVideo: ["ra0tIjxI2Tc", "rJsJcGxDGJ0"],
     tags: ["Submission", "Shoulder Lock", "Guard"]
   },
@@ -133,7 +133,7 @@ let myData = [
     description: "A guard passing technique where the practitioner steps across the legs and drives forward to side control.",
     difficulty: "Medium",
     creator: "Lucas Lepri",
-    image: "image/x_pass.jpg",
+    image: "./image/x_pass.jpg",
     demonstrationVideo: ["e0JT24znh-k", "e0JT24znh-k"],
     tags: ["Guard Pass", "Pressure"]
   },
@@ -144,7 +144,7 @@ let myData = [
     description: "A choke applied from top mount (or inside guard) using the sleeve and forearm across the throat.",
     difficulty: "Medium",
     creator: "Ezequiel Paraguassú",
-    image: "image/ezekiel_choke.jpg",
+    image: "./image/ezekiel_choke.jpg",
     demonstrationVideo: ["3XE2PDvhqdQ", "9Zm6C-6w14s"],
     tags: ["Submission", "Choke", "Gi"]
   }
@@ -235,13 +235,18 @@ function addFavor (name, paras) {
 }
 function showTags () {
   const selectTags = document.getElementById("tags-options");
-  for (let i = 0 ; i < tags.length ; i++) {
+  for (let i = 0 ; i < tags.length; i++) {
     const tag = tags[i];
     const newOption = document.createElement("option");
     newOption.value = tag;
     newOption.text = tag;
     selectTags.appendChild(newOption);
   }
+  const allOption = document.createElement("option");
+  allOption.value = "all";
+  allOption.text = "All";
+  selectTags.appendChild(allOption);
+  
 }
 function shuffle (arr) {
   for (let i = arr.length - 1; i > 0; i--) { 
@@ -309,7 +314,12 @@ function sortByDifficulty() {
 }
 function sortByTags() {
   const selectTags = document.getElementById("tags-options");
-  const selectedTech = currentData.filter(d => d.tags.find(name => name == selectTags.value));
+  let selectedTech;
+  if (selectTags.value == "all") {
+    selectedTech = currentData;
+  } else {
+    selectedTech = currentData.filter(d => d.tags.find(name => name == selectTags.value));
+  }
   showCards(false, selectedTech);
 }
 function onSearch() {

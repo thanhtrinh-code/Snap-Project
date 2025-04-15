@@ -35,7 +35,7 @@ let myData = [
     difficulty: "Medium",
     creator: "Rickson Gracie (popularizer)",
     image: "image/rear_naked_choke.jpg",
-    demonstrationVideo: ["", "JY9ithyvLRM"],
+    demonstrationVideo: ["8MpFS5wvSAM", "JY9ithyvLRM"],
     tags: ["Submission", "Back", "High Percentage"]
   },
   {

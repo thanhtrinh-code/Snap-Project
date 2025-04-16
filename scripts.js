@@ -33,7 +33,7 @@ let myData = [
     position: "Back Control",
     description: "A choke applied from the back, wrapping the arm around the neck and squeezing without using the Gi.",
     difficulty: "Medium",
-    creator: "Rickson Gracie (popularizer)",
+    creator: "Rickson Gracie",
     image: "./image/rear_naked_choke.jpg",
     demonstrationVideo: ["8MpFS5wvSAM", "JY9ithyvLRM"],
     tags: ["Submission", "Back", "High Percentage"]
@@ -44,7 +44,7 @@ let myData = [
     position: "Guard",
     description: "A choke that uses the legs to trap the opponent's head and one arm in a triangle configuration.",
     difficulty: "Hard",
-    creator: "Royce Gracie (popularizer)",
+    creator: "Royce Gracie",
     image: "./image/triangle_choke.jpg",
     demonstrationVideo: ["5ED_yLiMhyc", "oa-GPurs8Vw"],
     tags: ["Submission", "Choke", "Guard"]
@@ -121,7 +121,7 @@ let myData = [
     position: "Guard",
     description: "A shoulder lock submission executed by isolating an arm with the legs and rotating the opponent's shoulder.",
     difficulty: "Hard",
-    creator: "Nino Schembri (modern usage)",
+    creator: "Nino Schembri",
     image: "./image/omoplata.jpg",
     demonstrationVideo: ["ra0tIjxI2Tc", "rJsJcGxDGJ0"],
     tags: ["Submission", "Shoulder Lock", "Guard"]
@@ -263,6 +263,9 @@ function showTutorial (videoId, name) {
   tutorialSpace.style.display = "none";
   const tutorialButton = document.getElementById("tutorial-button");
   tutorialButton.style.display = "block";
+
+  const instruction = document.getElementById("instruction");
+  instruction.style.display = 'block';
 
   const video = document.querySelector("#tutorial iframe");
   video.src =  `https://www.youtube.com/embed/${videoId[0]}`;
